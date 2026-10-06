@@ -1,9 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: jikmik698/gokulchetry-site
   branch: main
+  base_url: https://YOUR-WORKER-URL.workers.dev
+  auth_endpoint: auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
+
+site_url: https://graceful-flan-3773f3.netlify.app
+display_url: https://graceful-flan-3773f3.netlify.app
 
 collections:
   - name: "home"
@@ -13,7 +19,7 @@ collections:
         label: "Home"
         file: "content/home.json"
         fields:
-          - {label: "Artist Name", name: "name", widget: "string"}
+          - {label: "Artist Name", name: "name", widget: "string", default: "Gokul Chetry"}
           - {label: "Tagline", name: "tagline", widget: "string", required: false}
           - {label: "Bio", name: "bio", widget: "text", required: false}
           - {label: "Profile Picture", name: "profile", widget: "image", required: false}
