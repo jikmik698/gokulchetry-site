@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home"
+        file: "content/home.json"
+        fields:
+          - {label: "Artist Name", name: "name", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string", required: false}
+          - {label: "Bio", name: "bio", widget: "text", required: false}
+          - {label: "Profile Picture", name: "profile", widget: "image", required: false}
+          - {label: "Cover Picture", name: "cover", widget: "image", required: false}
+
+  - name: "gallery"
+    label: "Gallery (Paintings)"
+    files:
+      - name: "gallery"
+        label: "Gallery Items"
+        file: "content/gallery.json"
+        fields:
+          - label: "Paintings"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+
+  - name: "events"
+    label: "Events"
+    files:
+      - name: "events"
+        label: "Events List"
+        file: "content/events.json"
+        fields:
+          - label: "Events"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+  - name: "blog"
+    label: "Blog"
+    files:
+      - name: "blog"
+        label: "Blog Posts"
+        file: "content/blog.json"
+        fields:
+          - label: "Posts"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Body", name: "body", widget: "text"}
